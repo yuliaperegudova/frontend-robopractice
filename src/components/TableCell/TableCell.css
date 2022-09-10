@@ -1,0 +1,27 @@
+.cell {
+    width: 50px;
+    height: 60px;
+    min-width: 80px;
+    padding: 12px;
+    border: 1px solid grey;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.cell_first {
+    min-width: 120px;
+    background: azure;
+    justify-content: flex-start;
+    position: sticky;
+    left: 0;
+}
+
+.cell_last {
+    background: azure;
+    justify-content: flex-end;
+    position: sticky;
+    right: 0;
+}
