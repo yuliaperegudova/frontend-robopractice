@@ -1,22 +1,24 @@
 import {FC} from "react";
 import './Table.css'
-import {getDaysArray, getTimeFromMins} from "../../utils/timeFormat";
+import {getDaysArray} from "../../utils/timeFormat";
 import {TableRow} from "../TableRow/TableRow";
 import {User} from "../../types/user";
 import {TableCell} from "../TableCell/TableCell";
 
 export interface TableProps {
-    users: User[]
+    users: User[];
+    onSort: () => void;
+    sorted: string | undefined;
 }
 
-export const Table: FC<TableProps> = ({users}) => {
+export const Table: FC<TableProps> = ({users, onSort, sorted}) => {
     const dates = getDaysArray(2021, 5)
 
     return <div className={'table'}>
         <div className={'header'}>
             <TableCell type={'first'}>
-            User
-                <div onClick={() => console.log('sort')}>+</div>
+                <span>User</span>
+                <div className={'sortToggle'} onClick={onSort}>{sorted === 'DESC' ? 'Z-A' : 'A-Z'}</div>
         </TableCell>
             {dates.map((date, index) => {
                 return  <TableCell key={date}>{index + 1}</TableCell>

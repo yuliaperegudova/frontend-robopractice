@@ -3,3 +3,16 @@
     flex-direction: row;
     position: relative;
 }
+
+.sortToggle {
+    border: steelblue;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 0 4px;
+    padding: 4px;
+}
+
+.sortToggle:hover {
+    opacity: 0.3;
+}

@@ -2,10 +2,8 @@ import React, {FormEventHandler, useEffect, useState} from 'react';
 import {getUsers} from "./api/api";
 import {User} from "./types/user";
 import {Table} from "./components/Table/Table";
-import {Input} from "./ui-kit/Input/Input";
 import useInputState from "./hooks/useInputState";
 import {Pagination} from "./components/Pagination/Pagination";
-import {Button} from "./ui-kit/Button/Button";
 import {Search} from "./components/Search/Search";
 
 export type Sort = 'ACS' | 'DESC' | undefined;
@@ -75,8 +73,7 @@ const App = () => {
   return (
       <>
           <Search initialValue={search} onValueChange={changeSearch} onSearchSubmit={handleSearch} />
-          <div onClick={handleNameSort}>{sorted === 'DESC' ? 'Sort down' : 'Sort up'}</div>
-          {usersToShow.length > 0 ? <Table users={usersToShow} /> : <>
+          {usersToShow.length > 0 ? <Table users={usersToShow} onSort={handleNameSort} sorted={sorted} /> : <>
               {didSearch ? <div>Nothing found. Check you search phrase</div> : <div>Loading...</div>}
           </>}
          <Pagination currentPage={currentPage} limit={limit} onBackClick={handleBackClick} onNextClick={handleNextClick} itemsTotal={users.length} />
