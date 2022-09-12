@@ -5,7 +5,6 @@ import {Table} from "./components/Table/Table";
 import useInputState from "./hooks/useInputState";
 import {Pagination} from "./components/Pagination/Pagination";
 import {Search} from "./components/Search/Search";
-import {useParams, useLocation} from "react-router-dom";
 
 export type Sort = 'ACS' | 'DESC' | undefined;
 
