@@ -5,6 +5,7 @@ import {Table} from "./components/Table/Table";
 import useInputState from "./hooks/useInputState";
 import {Pagination} from "./components/Pagination/Pagination";
 import {Search} from "./components/Search/Search";
+import {useParams, useLocation} from "react-router-dom";
 
 export type Sort = 'ACS' | 'DESC' | undefined;
 
@@ -24,7 +25,7 @@ const App = () => {
         e.preventDefault()
         const searchResults = users.filter((user) => user.Fullname.toLowerCase().includes(search.toLowerCase()))
         setDidSearch(true);
-        setUsersToShow(searchResults);
+        setUsersToShow(searchResults.slice(limit*currentPage, limit));
     }
 
     const handleNameSort = () => {
@@ -63,7 +64,7 @@ const App = () => {
 
     useEffect(() => {
        setUsersToShow(users.slice(limit*currentPage, limit));
-       setTotalPages(Math.ceil(users.length / limit))
+       setTotalPages(Math.ceil(users.length / limit));
     }, [users])
 
     useEffect(() => {
