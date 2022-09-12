@@ -3,7 +3,6 @@
     height: 60px;
     min-width: 80px;
     padding: 12px;
-    border: 1px solid grey;
     box-sizing: border-box;
     display: flex;
     flex-direction: row;

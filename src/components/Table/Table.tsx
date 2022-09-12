@@ -4,11 +4,12 @@ import {getDaysArray} from "../../utils/timeFormat";
 import {TableRow} from "../TableRow/TableRow";
 import {User} from "../../types/user";
 import {TableCell} from "../TableCell/TableCell";
+import {Sort} from "../../App";
 
 export interface TableProps {
     users: User[];
     onSort: () => void;
-    sorted: string | undefined;
+    sorted: Sort;
 }
 
 export const Table: FC<TableProps> = ({users, onSort, sorted}) => {
