@@ -1,0 +1,11 @@
+.input {
+ border: 1px solid steelblue;
+ height: 32px;
+ border-radius: 4px;
+ padding: 4px;
+ outline: none;
+}
+
+.input:focus {
+ border: 2px solid steelblue;
+}

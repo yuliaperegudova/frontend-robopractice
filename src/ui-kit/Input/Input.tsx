@@ -1,4 +1,5 @@
-import {forwardRef, RefObject} from "react";
+import React, {forwardRef, RefObject} from "react";
+import './Input.css';
 
 type InputProps = React.InputHTMLAttributes<any> & {
     errorText?: string;
@@ -13,7 +14,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             <label ref={wrapperRef}>
                 {label && <div>{label}</div>}
                 <div>
-                    <input type={'text'} ref={ref}{...props} />
+                    <input type={'text'} ref={ref}{...props} className={'input'} />
                 </div>
                 {errorText && <div>{errorText}</div>}
             </label>

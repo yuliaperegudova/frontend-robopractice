@@ -6,6 +6,7 @@ import {Input} from "./ui-kit/Input/Input";
 import useInputState from "./hooks/useInputState";
 import {Pagination} from "./components/Pagination/Pagination";
 import {Button} from "./ui-kit/Button/Button";
+import {Search} from "./components/Search/Search";
 
 export type Sort = 'ACS' | 'DESC' | undefined;
 
@@ -73,10 +74,7 @@ const App = () => {
 
   return (
       <>
-          <form onSubmit={handleSearch}>
-              <Input value={search} onChange={changeSearch} label={'Search'} placeholder={'Start typing'}/>
-              <Button text={'Search'}/>
-          </form>
+          <Search initialValue={search} onValueChange={changeSearch} onSearchSubmit={handleSearch} />
           <div onClick={handleNameSort}>{sorted === 'DESC' ? 'Sort down' : 'Sort up'}</div>
           {usersToShow.length > 0 ? <Table users={usersToShow} /> : <>
               {didSearch ? <div>Nothing found. Check you search phrase</div> : <div>Loading...</div>}

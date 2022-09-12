@@ -1,20 +1,22 @@
 import React, {FC, FormEventHandler} from "react";
 import {Input} from "../../ui-kit/Input/Input";
-import useInputState from "../../hooks/useInputState";
+import {Button} from "../../ui-kit/Button/Button";
+import './Search.css';
 
-export const Search: FC = () => {
-    const [search, changeSearch] = useInputState('');
+export interface SearchProps {
+    initialValue: string;
+    onValueChange: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
+    onSearchSubmit: FormEventHandler;
+}
 
-    const handleSearch: FormEventHandler = (e) => {
-        e.preventDefault()
-        console.log(search)
-    }
+export const Search: FC<SearchProps> = ({initialValue, onValueChange, onSearchSubmit}) => {
 
     return <div>
-        <form onSubmit={handleSearch}>
-            <Input value={search} onChange={changeSearch} label={'Search'} placeholder={'Start typing'}/>
-            <button>Search</button>
-        </form>
+         <form onSubmit={onSearchSubmit} className={'search'}>
+            <Input value={initialValue} onChange={onValueChange} placeholder={'Start typing'}/>
+            <Button text={'Search'} type={"submit"} />
+         </form>
     </div>
+
 
 }
