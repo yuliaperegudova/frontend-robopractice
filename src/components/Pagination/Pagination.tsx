@@ -1,5 +1,6 @@
 import React, {FC} from "react";
 import './Paination.css'
+import {Button} from "../../ui-kit/Button/Button";
 
 export interface PaginationProps {
     limit: number;
@@ -14,8 +15,8 @@ export const Pagination: FC<PaginationProps> = ({limit, currentPage, onBackClick
     const itemsShown = itemsTotal > 10 ? limit*(currentPage+1) : itemsTotal;
 
     return  <div className={'pagination'}>
-        <button type={'button'} onClick={onBackClick}>Back</button>
+        <Button onClick={onBackClick} text={"Back"} type={"button"} />
         <div>{itemsShown} of {itemsTotal}</div>
-        <button type={'button'} onClick={onNextClick}>Next</button>
+        <Button onClick={onNextClick} text={"Next"} type={"button"} />
     </div>
 }
