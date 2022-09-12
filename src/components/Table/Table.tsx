@@ -26,8 +26,8 @@ export const Table: FC<TableProps> = ({users}) => {
             </TableCell>
         </div>
 
-        {users.length > 0 ? users.map((user) => {
+        {users.length > 0 && users.map((user) => {
             return <TableRow key={user.id} user={user} dates={dates} />
-        }) : 'Loading...'}
+        })}
     </div>
 }
